@@ -1,0 +1,15 @@
+[Unit]
+Description=TFT service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi
+ExecStartPre=/sbin/modprobe fbtft dma
+ExecStartPre=/sbin/modprobe fbtft_device custom name=sainsmart18 gpios=reset:25,dc:12 width=128 height=160 rotate=90 speed=16000000
+ExecStartPre=/bin/sleep 1
+ExecStart=/usr/bin/startx /usr/bin/python /home/pi/display.py -- -config /home/pi/99-fbdev.conf
+Nice=-19
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=SmartPi readout
+After=syslog.target remote-fs.target systemd-journald-dev-log.socket
+
+[Service]
+User=pi
+Environment=NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+ExecStart=/usr/local/bin/smartpireadout
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

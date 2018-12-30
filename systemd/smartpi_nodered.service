@@ -1,0 +1,14 @@
+[Unit]
+Description=SmartPi node red
+After=syslog.target network-online.target remote-fs.target systemd-journald-dev-log.socket
+Wants=network-online.target
+Requires=smartpi_server.service
+
+[Service]
+User=pi
+Environment=NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+ExecStart=/usr/bin/node-red
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
