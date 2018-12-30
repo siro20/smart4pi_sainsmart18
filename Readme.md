@@ -37,10 +37,10 @@ Run `systemctl daemon-reload` and then
 ### tft.service
 This service does:
 * `modprobe fbtft_device custom name=sainsmart18 gpios=reset:25,dc:12 width=128 height=160 rotate=90 speed=16000000`
-  to spawn a `/dev/fb0` device
-* start a new X11 server on fbdev `/dev/fb0`
+  to spawn a `/dev/fb1` device
+* start a new X11 server on fbdev `/dev/fb1`
 * run `python /home/pi/display.py`
-  which renders to `/dev/fb0` and connects to the smartpi server on localhost using TCP
+  which renders to `/dev/fb1` and connects to the smartpi server on localhost using TCP
 
 ### smartpi_readout.service
 Runs /usr/local/sbin/smartpireadout
