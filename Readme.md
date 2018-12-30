@@ -53,4 +53,4 @@ Runs /usr/local/sbin/smartpiserver
 
 ## Final result
 
-![][smart4pi_tft](smart4pi_tft.jpg)
+![][smart4pi_tft](https://raw.githubusercontent.com/siro20/smart4pi_sainsmart18/master/smart4pi_tft.jpg)
