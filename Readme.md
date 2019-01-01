@@ -1,10 +1,12 @@
 ## Sainsmart18 TFT on Raspberry Pi 3 using Smart4Pi
 
 Here you can find systemd scripts and files to display the current
-power readings of smart4pi on a Sainsmart18 TFT display.
+power readings of [smart4pi](https://shop.enerserve.eu/smartpi/)
+on a [Sainsmart18](https://www.sainsmart.com/products/1-8-tft-spi-lcd-screen-with-microsd-socket)
+TFT display.
 
 ## Connect the smart4pi power reading hardware
-The smart4pi hardware connects over i2c.
+The smart4pi hardware connects over i2c using the connector that ships with the adapter board.
 
 ## Connecting the display
 The Sainsmart18 TFT has to be connected over SPI.
@@ -23,10 +25,17 @@ The Sainsmart18 TFT has to be connected over SPI.
 * Install smart4pi tools
 
 ## Copy files
-Copy the files in `systemd/` to `/etc/systemd/system`.
+Copy the files in `systemd/` to `/usr/lib/systemd/system`.
 Copy display.py and 99-fbdev.conf to `/home/pi`.
 
 Run `systemctl daemon-reload` and then
+
+    systemctl enable smartpi_nodered.service
+    systemctl enable smartpi_readout.service
+    systemctl enable smartpi_server.service
+    systemctl enable tft.service
+
+And start the services:
 
     systemctl start smartpi_nodered.service
     systemctl start smartpi_readout.service
